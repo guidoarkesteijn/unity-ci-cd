@@ -3,15 +3,15 @@
 [TestFixture]
 public class UnitTestServiceTests
 {
-    [Test]
-    [TestCase(true, false)]
-    [TestCase(false, true)]
-    public void GetInvertedBool_WithBool_ReturnsInvertedBool(bool input, bool expected)
-    {
-        bool result = UnitTestService.GetInverted(input);
+    //[Test]
+    //[TestCase(true, false)]
+    //[TestCase(false, true)]
+    //public void GetInvertedBool_WithBool_ReturnsInvertedBool(bool input, bool expected)
+    //{
+    //    bool result = UnitTestService.GetInverted(input);
 
-        Assert.AreEqual(expected, result);
-    }
+    //    Assert.AreEqual(expected, result);
+    //}
 
     [Test]
     [TestCase(0, 0)]
