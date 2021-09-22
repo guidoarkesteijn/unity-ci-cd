@@ -31,6 +31,7 @@ jobs:
           artifactsPath: ${{ matrix.testMode }}-artifacts
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           checkName: ${{ matrix.testMode }} Test Results
+          customParameters: -debugCodeOptimization -enableCodeCoverage -coverageOptions "generateAdditionalMetrics;generateHtmlReport;generateHtmlReportHistory;generateBadgeReport; assemblyFilters:+my.assembly.*,+<packages>; pathFilters:-*/Tests/*,-*/BuiltInPackages/*; verbosity:verbose"
       - uses: actions/upload-artifact@v2
         if: always()
         with:
@@ -38,3 +39,5 @@ jobs:
           path: ${{ steps.tests.outputs.artifactsPath }}
       - name: Codecov
         uses: codecov/codecov-action@v2.1.0
+        with:
+          directory: CodeCoverage
