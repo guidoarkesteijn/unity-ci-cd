@@ -36,3 +36,5 @@ jobs:
         with:
           name: Test results for ${{ matrix.testMode }}
           path: ${{ steps.tests.outputs.artifactsPath }}
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
