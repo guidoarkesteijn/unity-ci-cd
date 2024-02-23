@@ -13,10 +13,10 @@ jobs:
           - playmode
           - editmode
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.1.1
         with:
           lfs: true
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4.0.0
         with:
           path: /Library
           key: Library-Tests
@@ -34,13 +34,13 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           checkName: ${{ matrix.testMode }} Test Results
           customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4.3.1
         if: always()
         with:
           name: Test results for ${{ matrix.testMode }}
           path: ${{ steps.tests.outputs.artifactsPath }}
       - name: Codecov
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v4.0.2
         with:
           flags: automated
           files: coverage-results/**/*.xml
