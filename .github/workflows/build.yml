@@ -18,11 +18,11 @@ jobs:
           - Android # Build an Android .apk standalone app.
           - WebGL # WebGL.
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
           lfs: true
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4.0.0
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
@@ -34,7 +34,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4.3.1
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
